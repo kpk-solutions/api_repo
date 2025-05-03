@@ -1,3 +1,4 @@
+
 sudo docker build -t fast_api_image .
 sudo docker run -p 8000:8000 fast_api_image
 
@@ -9,4 +10,9 @@ docker stop 0be000746084
 Find the process using port 8000:
 sudo lsof -i :8000
 sudo kill <PID>
+
+install git
+git init
+git clone https://github.com/kpk-solutions/api_repo.git
+
 
