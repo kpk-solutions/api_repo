@@ -1,0 +1,36 @@
+# Node.js dependencies
+node_modules/
+
+# Python virtual environments
+.env/
+.venv/
+venv/
+
+# Log files
+*.log
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS-specific files
+.DS_Store          # macOS
+Thumbs.db          # Windows
+
+# Environment variable files (e.g., sensitive keys)
+.env
+
+# Docker-related files
+docker-compose.override.yml
+.docker/
+
+# Build and dist folders
+build/
+dist/
+
+# Temporary files
+tmp/
+temp/
+
