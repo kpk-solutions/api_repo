@@ -1,0 +1,47 @@
+
+sudo docker build -t fast_api_image .
+sudo docker run -p 8000:8000 fast_api_image
+
+2. Create requirements.txt
+If you don’t already have it, generate it from your virtual environment:
+pip freeze > requirements.txt
+docker ps
+docker stop 0be000746084
+Find the process using port 8000:
+sudo lsof -i :8000
+sudo kill <PID>
+
+## go to python_projects/api_repo
+## then
+install git
+git init
+git branch
+# change branch
+git checkout pk_local_branch
+#copy entire code to local
+git clone https://github.com/kpk-solutions/api_repo.git
+## pull latest changes from main to local branch
+git pull origin main
+
+once you commit your changes to your branch,
+git will ask for compare and create pull request
+base should be main a
+compare should be your branch
+
+You can see new changes below
+then add title and create pull request
+
+tep 1: Clean up everything # KeyError: 'ContainerConfig'
+Run these commands from the root of your project (api_dir_micro):
+sudo docker-compose down --volumes --remove-orphans
+sudo docker system prune -af
+
+#to build micro service image
+sudo docker-compose build --no-cache
+#to run container
+sudo docker-compose up
+
+After fixing any of the above, rebuild and restart:
+sudo docker-compose down --remove-orphans
+sudo docker-compose build --no-cache
+sudo docker-compose up

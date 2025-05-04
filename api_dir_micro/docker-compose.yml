@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  lineage-service:
+    build:
+      context: .
+      dockerfile: lineage-service/Dockerfile
+    working_dir: /lineage-service
+    ports:
+      - "${LINEAGE_PORT}:8000"
+    volumes:
+      - ./lineage-service:/lineage-service
+  job-service:
+    build:
+      context: .
+      dockerfile: job-service/Dockerfile
+    working_dir: /job-service
+    ports:
+      - "${JOB_SERVICE_PORT}:8001"
+    volumes:
+      - ./job-service:/job-service
