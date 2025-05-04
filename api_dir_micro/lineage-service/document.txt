@@ -52,3 +52,112 @@ After fixing any of the above, rebuild and restart:
 sudo docker-compose down --remove-orphans
 sudo docker-compose build --no-cache
 sudo docker-compose up
+
+
+==========================================================================
+Workflow Explained:
+Pull the latest changes from the main branch:
+
+You’re ensuring your local branch is up to date with the remote main branch before you start making changes.
+git pull origin main
+
+Add your new files and logic:
+After pulling the latest changes, you can safely implement your new features or make necessary updates to your files.
+
+Run your application using Docker:
+
+You can test your new logic by running your project inside a Docker container, ensuring everything works as expected before committing.
+
+Commit changes to your local branch:
+
+Once you’re happy with the changes and everything works, you’ll commit your changes to your local branch (not main).
+
+git add .  # Add all your modified and new files
+git commit -m "Your descriptive commit message here"
+Push changes to your remote branch:
+
+After committing locally, push your changes to the remote repository (on your feature branch).
+
+git push origin pk_local_branch  # Assuming your branch is called 'pk_local_branch'
+Create a Pull Request (PR):
+
+Go to GitHub (or your Git hosting service) and create a pull request from your feature branch (pk_local_branch) to the main branch.
+
+Merge PR into the main branch:
+
+After reviewing the changes in the PR, you (or the team) will merge the pull request into main.
+
+Additional Tips for the Workflow:
+Branching:
+
+It's great that you’re working on a separate branch (pk_local_branch). This keeps your main branch clean and allows for safer collaboration.
+
+Rebasing vs. Merging:
+
+When you do git pull origin main in your local feature branch, you might run into a situation where your local branch has diverged from main. If you want to avoid unnecessary merge commits, you can rebase your branch on top of main. This can be done with:
+
+bash
+Copy
+Edit
+git pull origin main --rebase
+This command will ensure your feature branch is rebased on top of the latest main branch, which can make the Git history cleaner.
+
+Committing:
+
+When committing, try to keep your commit messages descriptive about what was changed. For example:
+
+bash
+Copy
+Edit
+git commit -m "Add new feature X to handle edge cases"
+This helps your team (and yourself in the future) understand the purpose of the change without looking at the code.
+
+Handling Conflicts:
+
+Sometimes, you may run into merge conflicts during the git pull origin main or while creating the PR. Don’t worry, it’s a common scenario. Git will mark the conflicting files and you can manually resolve the conflicts. After resolving, you can:
+
+bash
+Copy
+Edit
+git add <resolved-file>
+git commit  # Commit the resolved changes
+git push origin pk_local_branch  # Push changes back
+PR Review:
+
+After you push your changes and open a pull request, it's a good idea to review the PR yourself first, and then ask teammates (if you're working in a team) to review it. Once reviewed and approved, you can merge it into main.
+
+Docker Consideration:
+
+Once your app is running correctly inside Docker, remember that any changes to dependencies (like requirements.txt for Python) should be handled in the Dockerfile as well, ensuring that your container reflects those updates.
+
+Final Steps After Merging:
+Once the PR is merged into main, it’s a good idea to delete your feature branch (both locally and remotely) if you're done with it. This keeps the branch list clean:
+
+Delete the branch locally:
+
+bash
+Copy
+Edit
+git branch -d pk_local_branch
+Delete the branch remotely (on GitHub):
+
+bash
+Copy
+Edit
+git push origin --delete pk_local_branch
+Summary of Your Approach:
+Pull the latest from main.
+
+Add new files and logic.
+
+Test with Docker.
+
+Commit changes locally.
+
+Push changes to the remote branch.
+
+Create a PR from your feature branch to main.
+
+Merge the PR into main.
+
+This approach keeps everything clean and organized, and ensures that your changes are well-tested and reviewed before being merged into main. It's a solid strategy for working with Git and Docker in collaboration!
