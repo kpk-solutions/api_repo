@@ -11,8 +11,17 @@ Find the process using port 8000:
 sudo lsof -i :8000
 sudo kill <PID>
 
+## go to python_projects/api_repo
+## then
 install git
 git init
+git branch
+# change branch
+git checkout pk_local_branch
+#copy entire code to local
 git clone https://github.com/kpk-solutions/api_repo.git
+## pull latest changes from main to local branch
+git pull origin main
+
 
 
