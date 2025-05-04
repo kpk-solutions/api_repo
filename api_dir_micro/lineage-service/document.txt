@@ -1,3 +1,10 @@
+go to api_repo
+do git pull origin
+
+go to api_dir_micro
+sudo docker-compose build --no-cache
+sudo docker-compose up
+
 
 sudo docker build -t fast_api_image .
 sudo docker run -p 8000:8000 fast_api_image
