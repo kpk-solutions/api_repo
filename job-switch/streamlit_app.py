@@ -3,7 +3,7 @@ import requests
 import plotly.express as px
 
 def get_job_demand(skill):
-    url = f"http://localhost:8000/get-jobs/{skill}"
+    url = f"http://fastapi:8000/get-jobs/{skill}"
     response = requests.get(url)
     return response.json()
 
