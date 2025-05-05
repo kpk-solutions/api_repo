@@ -1,0 +1,9 @@
+Integration Workflow
+User Input: The user provides a skill via the FastAPI endpoint.
+
+Data Retrieval: The backend queries the database for historical data on the skill's demand.
+
+Data Analysis: The backend processes the data to assess current demand and trends.
+
+Recommendation: Based on the analysis, the backend returns advice on whether it's a good time to switch careers.
+
