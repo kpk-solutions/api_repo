@@ -1,21 +1,36 @@
-version: '3.8'
+# docker-compose.yml
+version: '3.7'
 
 services:
-  web:
+  fastapi:
     build: .
     ports:
-      - "8002:8002"
-    depends_on:
-      - db
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - TZ=Asia/Kolkata
+    networks:
+      - app-network
 
   db:
-    image: postgres:13
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: skills_db
+    image: nouchka/sqlite3
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - ./data:/data
+    networks:
+      - app-network
 
-volumes:
-  postgres_data:
+  streamlit:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+    environment:
+      - TZ=Asia/Kolkata
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
