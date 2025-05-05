@@ -1,10 +1,7 @@
-fastapi==0.115.12
-uvicorn==0.33.0
-loguru
-
-psycopg2-binary
-sqlalchemy
-alembic
+fastapi
+requests
+beautifulsoup4
+uvicorn
+streamlit
 pandas
-matplotlib
-seaborn
+plotly
